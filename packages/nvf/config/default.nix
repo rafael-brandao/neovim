@@ -1,3 +1,5 @@
 {
-  imports = [];
+   imports = [
+     ./extra-lua.nix
+   ];
 }

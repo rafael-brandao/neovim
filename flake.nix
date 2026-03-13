@@ -55,6 +55,10 @@
       url = "github:saghen/blink.cmp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    catppuccin-nvim = {
+      url = "github:catppuccin/nvim";
+      flake = false;
+    };
     snacks-nvim = {
       url = "github:folke/snacks.nvim";
       flake = false;

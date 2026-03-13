@@ -17,6 +17,11 @@
           // {
             blink-cmp-nightly = inputs.blink-cmp.packages.${system}.blink-cmp;
 
+            catppuccin-nvim-git = buildVimPlugin {
+              name = "catppuccin.nvim";
+              src = inputs.catppuccin-nvim;
+              doCheck = false;
+            };
             snacks-nvim-git = buildVimPlugin {
               name = "snacks.nvim";
               src = inputs.snacks-nvim;

@@ -22,6 +22,22 @@
         "type": "github"
       }
     },
+    "catppuccin-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1775518241,
+        "narHash": "sha256-qs74a/h9nUoI1uZ7Rlh8krgWkTaIh4SaHshhPiDwBis=",
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "rev": "426dbebe06b5c69fd846ceb17b42e12f890aedf1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "catppuccin",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "fenix": {
       "inputs": {
         "nixpkgs": [
@@ -340,6 +356,7 @@
     "root": {
       "inputs": {
         "blink-cmp": "blink-cmp",
+        "catppuccin-nvim": "catppuccin-nvim",
         "flake-compat": "flake-compat",
         "flake-parts": "flake-parts_2",
         "flake-root": "flake-root",

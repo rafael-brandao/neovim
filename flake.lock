@@ -366,6 +366,7 @@
         "nixpkgs": "nixpkgs",
         "nvf": "nvf",
         "snacks-nvim": "snacks-nvim",
+        "tiny-inline-diagnostic-nvim": "tiny-inline-diagnostic-nvim",
         "todo-comments-nvim": "todo-comments-nvim",
         "treefmt-nix": "treefmt-nix",
         "trouble-nvim": "trouble-nvim",
@@ -417,6 +418,22 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tiny-inline-diagnostic-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1771974103,
+        "narHash": "sha256-cIG8PPcYjJxsTbaeEN/P/D75wou1c1A2+2XkxN1aUPw=",
+        "owner": "rachartier",
+        "repo": "tiny-inline-diagnostic.nvim",
+        "rev": "ba133b3e932416e4b9507095731a6d7276878fe8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rachartier",
+        "repo": "tiny-inline-diagnostic.nvim",
         "type": "github"
       }
     },

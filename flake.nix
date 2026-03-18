@@ -63,6 +63,10 @@
       url = "github:folke/snacks.nvim";
       flake = false;
     };
+    tiny-inline-diagnostic-nvim = {
+      url = "github:rachartier/tiny-inline-diagnostic.nvim";
+      flake = false;
+    };
     todo-comments-nvim = {
       url = "github:folke/todo-comments.nvim";
       flake = false;

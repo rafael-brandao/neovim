@@ -27,6 +27,11 @@
               src = inputs.snacks-nvim;
               doCheck = false;
             };
+            tiny-inline-diagnostic-nvim-git = buildVimPlugin {
+              name = "tiny-inline-diagnostic.nvim";
+              src = inputs.tiny-inline-diagnostic-nvim;
+              doCheck = false;
+            };
             todo-comments-nvim-git = buildVimPlugin {
               name = "todo-comments.nvim";
               src = inputs.todo-comments-nvim;

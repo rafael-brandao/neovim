@@ -131,7 +131,7 @@ with lib; {
       diagnostics = {
         enable = true;
         config = {
-          virtual_lines = true;
+          virtual_lines = mkDefault true;
         };
       };
 
@@ -143,10 +143,43 @@ with lib; {
         pkgs.deadnix
       ];
     }
+
+    # ────────────────────────────────────────────────
+    # Tiny inline diagnostic plugin
+    # ────────────────────────────────────────────────
+    (mkIf config.vim.diagnostics.enable {
+      diagnostics = {
+        config.virtual_lines = false;
+      };
+
+      extraPlugins = {
+        tiny-inline-diagnostic-nvim = {
+          package = pkgs.vimPlugins.tiny-inline-diagnostic-nvim-git;
+          setup =
+            # lua
+            ''
+              require("tiny-inline-diagnostic").setup({
+                options = {
+                  add_messages = {
+                    display_count = true,
+                  },
+                  multilines = {
+                    enabled = true,
+                  },
+                  show_source = {
+                    enabled = true,
+                  },
+                },
+              })
+            '';
+        };
+      };
+    })
+
+    # ────────────────────────────────────────────────
+    # Custom <leader>f format keymap
+    # ────────────────────────────────────────────────
     (mkIf config.vim.formatter.conform-nvim.enable {
-      # ────────────────────────────────────────────────
-      # Custom <leader>f format keymap
-      # ────────────────────────────────────────────────
       autocmds = [
         {
           desc = "Set custom LSP format keymap (<leader>f) on attach";

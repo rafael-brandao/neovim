@@ -262,6 +262,32 @@
           silent = true;
           action = "v:count == 0 ? 'gk' : 'k'";
         };
+
+        "n" = {
+          desc = "Search forward and center the view";
+          lua = true;
+          action =
+            # lua
+            ''
+              function()
+                vim.cmd("silent normal! nzzzv")
+                M.keymaps.callbacks.search_forward()
+              end
+            '';
+        };
+
+        "N" = {
+          desc = "Search backward and center the view";
+          lua = true;
+          action =
+            # lua
+            ''
+              function()
+                vim.cmd("silent normal! Nzzzv")
+                M.keymaps.callbacks.search_backward()
+              end
+            '';
+        };
       };
 
       # ── Insert mode ────────────────────────────────────────────────────────────
@@ -307,42 +333,56 @@
       };
     };
 
-    luaConfigRC.customMappings =
-      nvf.lib.nvim.dag.entryAfter ["mappings"]
-      # lua
-      ''
-        vim.keymap.set({"x"}, "<leader>p", [["_dP]], {["desc"] = "Paste preserving the register content",
-        ["expr"] = false,
-        ["noremap"] = true,
-        ["nowait"] = false,
-        ["remap"] = false,
-        ["script"] = false,
-        ["silent"] = true,
-        ["unique"] = false})
-        vim.keymap.set({"x"}, "<leader>cp", [["_d"+P]], {["desc"] = "Paste from the system clipboard preserving the register content",
-        ["expr"] = false,
-        ["noremap"] = true,
-        ["nowait"] = false,
-        ["remap"] = false,
-        ["script"] = false,
-        ["silent"] = true,
-        ["unique"] = false})
-        vim.keymap.set({"i",
-        "n"}, "<C-z>", function()
-          if vim.fn.has("wsl") == 1 then
-            return ""
-          else
-            return vim.keycode "<C-z>"
+    luaConfigRC = {
+      customMappingsPre =
+        nvf.lib.nvim.dag.entryBetween ["mappings"] ["extraPluginConfigs"]
+        # lua
+        ''
+          M.keymaps = {}
+
+          M.keymaps.callbacks = {
+            search_forward = function() end,
+            search_backward = function() end,
+          }
+        '';
+
+      customMappings =
+        nvf.lib.nvim.dag.entryAfter ["mappings"]
+        # lua
+        ''
+          vim.keymap.set({"x"}, "<leader>p", [["_dP]], {["desc"] = "Paste preserving the register content",
+          ["expr"] = false,
+          ["noremap"] = true,
+          ["nowait"] = false,
+          ["remap"] = false,
+          ["script"] = false,
+          ["silent"] = true,
+          ["unique"] = false})
+          vim.keymap.set({"x"}, "<leader>cp", [["_d"+P]], {["desc"] = "Paste from the system clipboard preserving the register content",
+          ["expr"] = false,
+          ["noremap"] = true,
+          ["nowait"] = false,
+          ["remap"] = false,
+          ["script"] = false,
+          ["silent"] = true,
+          ["unique"] = false})
+          vim.keymap.set({"i",
+          "n"}, "<C-z>", function()
+            if vim.fn.has("wsl") == 1 then
+              return ""
+            else
+              return vim.keycode "<C-z>"
+            end
           end
-        end
-        , {["desc"] = "Remap Ctrl-Z to Nop if running on WSL",
-        ["expr"] = true,
-        ["noremap"] = true,
-        ["nowait"] = false,
-        ["remap"] = false,
-        ["script"] = false,
-        ["silent"] = true,
-        ["unique"] = false})
-      '';
+          , {["desc"] = "Remap Ctrl-Z to Nop if running on WSL",
+          ["expr"] = true,
+          ["noremap"] = true,
+          ["nowait"] = false,
+          ["remap"] = false,
+          ["script"] = false,
+          ["silent"] = true,
+          ["unique"] = false})
+        '';
+    };
   };
 }

@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./plugins/binds.nix
     ./plugins/lsp.nix
     ./plugins/notes.nix
     ./plugins/statusline.nix

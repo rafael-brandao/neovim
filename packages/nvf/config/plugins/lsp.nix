@@ -15,7 +15,12 @@ with lib; {
         inlayHints.enable = true;
 
         # Signature help (correct name in current NVF)
-        lspSignature.enable = true;
+        # lspSignature.enable = pipe config.vim.autocomplete.blink-cmp.setupOpts [
+        #   (attrByPath ["signature" "enabled"] false)
+        #   (bool: !bool)
+        #   mkDefault
+        # ];
+        lspSignature.enable = mkDefault (!config.vim.autocomplete.blink-cmp.enable);
 
         # ────────────────────────────────────────────────
         # LSP Servers

@@ -35,6 +35,9 @@ in {
         debug = {
           enabled = true;
         };
+        explorer = {
+          enabled = true;
+        };
         git = {
           enabled = true;
         };
@@ -65,7 +68,7 @@ in {
           enabled = true;
         };
         statuscolumn = {
-          enabled = false;
+          enabled = true;
         };
         styles = {
           notification_history = {

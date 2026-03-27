@@ -2,6 +2,7 @@ _: {
   imports = [
     ./plugins/autocomplete.nix
     ./plugins/binds.nix
+    ./plugins/git.nix
     ./plugins/lsp.nix
     ./plugins/mini.nix
     ./plugins/notes.nix

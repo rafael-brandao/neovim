@@ -9,6 +9,7 @@ _: {
     ./plugins/snippets.nix
     ./plugins/statusline.nix
     ./plugins/treesitter.nix
+    ./plugins/ui.nix
     ./plugins/utility/snacks.nix
   ];
 }

@@ -17,6 +17,11 @@
           // {
             blink-cmp-nightly = inputs.blink-cmp.packages.${system}.blink-cmp;
 
+            modes-nvim-git = buildVimPlugin {
+              name = "modes.nvim";
+              src = inputs.modes-nvim;
+              doCheck = false;
+            };
             snacks-nvim-git = buildVimPlugin {
               name = "snacks.nvim";
               src = inputs.snacks-nvim;

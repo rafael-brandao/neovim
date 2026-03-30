@@ -55,6 +55,10 @@
       url = "github:saghen/blink.cmp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    modes-nvim = {
+      url = "github:mvllow/modes.nvim";
+      flake = false;
+    };
     snacks-nvim = {
       url = "github:folke/snacks.nvim";
       flake = false;

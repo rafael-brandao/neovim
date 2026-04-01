@@ -8,24 +8,26 @@
       custom = {
         enable = true;
         justfile = ''
-          # Run one of [ nvf, nvf-dev ]
-          [arg("dist", pattern="^(nvf|nvf-dev)$")]
-          run dist:
-            nix run .#{{dist}}
+          # Run a neovim package: just run nvf | just run nvf dev
+          [arg("pkg", pattern="^(nvf)$")]
+          [arg("variant", pattern="^(default|dev)$")]
+          run pkg variant=("default"):
+            nix run .#rb.{{pkg}}.{{variant}}
 
-          # Inspect one of [ nvf, nvf-dev ]
-          [arg("dist", pattern="^(nvf|nvf-dev)$")]
-          inspect dist:
-            nix build .#{{dist}} && result/bin/nvf-print-config | bat --language lua
+          # Inspect a neovim package: just inspect nvf | just inspect nvf dev
+          [arg("pkg", pattern="^(nvf)$")]
+          [arg("variant", pattern="^(default|dev)$")]
+          inspect pkg variant=("default"):
+            nix build .#rb.{{pkg}}.{{variant}}
+            result/bin/nvf-print-config | bat --language lua
 
-          
           [group: 'shorthands']
           nvf:
             just run nvf
 
           [group: 'shorthands']
           nvf-dev:
-            just run nvf-dev
+            just run nvf dev
         '';
       };
     };

@@ -41,10 +41,6 @@
     just-flake = {
       url = "github:juspay/just-flake";
     };
-    nil = {
-      url = "github:oxalica/nil";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     treefmt-nix = {
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -96,5 +92,10 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+      flake = {
+        flakeModules = {
+          nvf = import ./packages/nvf/flake-part.nix {inherit inputs;};
+        };
+      };
     };
 }

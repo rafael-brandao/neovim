@@ -11,5 +11,6 @@ _: {
     ./plugins/treesitter.nix
     ./plugins/ui.nix
     ./plugins/utility/snacks.nix
+    ./plugins/visuals.nix
   ];
 }

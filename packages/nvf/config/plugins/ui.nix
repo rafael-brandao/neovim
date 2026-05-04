@@ -39,7 +39,7 @@ in {
         };
       };
       noice = {
-        enable = true;
+        enable = mkOverride 1500 false;
         setupOpts = {
           cmdline = {
             enabled = true;

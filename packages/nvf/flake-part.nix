@@ -21,8 +21,6 @@
         vimPlugins = with final.vimUtils;
           prev.vimPlugins
           // {
-            blink-cmp-nightly = inputs.blink-cmp.packages.${system}.blink-cmp;
-
             modes-nvim-git = buildVimPlugin {
               name = "modes.nvim";
               src = inputs.modes-nvim;

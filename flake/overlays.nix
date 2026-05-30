@@ -11,7 +11,7 @@ with lib; let
   }:
     import nixpkgs {
       inherit overlays system;
-      # config.allowUnfree = true;
+      config.allowUnfree = true;
     };
 
   pkgsFor = system:

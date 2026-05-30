@@ -9,7 +9,7 @@ with lib; {
     {
       statusline.lualine = {
         enable = mkDefault true;
-        disabledFiletypes = [
+        disabledFiletypes.statusline = [
           "netrw"
           "snacks_dashboard"
         ];

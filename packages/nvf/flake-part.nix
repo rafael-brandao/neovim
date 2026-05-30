@@ -55,12 +55,13 @@
       (inputs.nvf.lib.neovimConfiguration {
         inherit modules pkgs;
       }).neovim;
-  in {
-    legacyPackages = {
-      rb.nvf = with inputs.self.modules; {
-        default = mkNvfPkg rb.nvf.default;
-        dev = mkNvfPkg rb.nvf.dev;
-      };
+
+    packages = with inputs.self.modules; rec {
+      default = nvf;
+      nvf = mkNvfPkg rb.nvf.default;
+      nvf-dev = mkNvfPkg rb.nvf.dev;
     };
+  in {
+    inherit packages;
   };
 }
